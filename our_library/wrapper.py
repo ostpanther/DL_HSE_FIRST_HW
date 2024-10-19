@@ -159,7 +159,23 @@ class MNISTWrapper(Wrapper):
         self.loss
         self.learning_rate
         """
-        ...
+        # КОД ЗДЕСЬ
+        # forward
+        pred = self.model.forward(x)
+
+        # loss
+        loss_batch = self.loss.forward(pred, y)
+
+        # backward от loss
+        grad = self.loss.backward(pred, y)  
+
+        # backward model
+        self.model.backward(grad)
+
+        # обновление весов
+        self.model.step(self.learning_rate)
+
+        return loss_batch, pred
 
     def predict_batch(self, x):
         """
@@ -168,4 +184,5 @@ class MNISTWrapper(Wrapper):
         :param x: входные данные np.array with shape (batch_size, n_features)
         :return: prediction - матрица предсказаний вашей модели
         """
-        ...
+        return self.model.forward(x)
+
