@@ -1,3 +1,6 @@
+!У меня удалось пройти все тесты но на трейне вылезла ошибка, с которой не смог разобраться.
+Как я понял дело в our_library модулями.!
+
 # from numpy import Neural Network
 
 For English, go [here](README_eng.md)
